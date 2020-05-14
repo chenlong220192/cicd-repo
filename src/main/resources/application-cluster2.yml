@@ -1,0 +1,26 @@
+spring:
+  profiles: cluster2
+
+server:
+  port: 1002
+
+eureka:
+  instance:
+    hostname: cluster2
+  # 修改Eureka首页上面 System Status 的 Data center 显示信息
+  datacenter: SpringCloud
+  # 修改Eureka首页上面 System Status 的 Environment 显示信息
+  environment: local
+  server:
+    # 测试时关闭自我保护机制，保证不可用服务及时踢出
+    enable-self-preservation: false
+  client:
+    # 是否要注册到其他Eureka Server实例
+    register-with-eureka: true
+    # 是否要从其他Eureka Server实例获取数据
+    fetch-registry: true
+    serviceUrl:
+      # 相互注册，组成一个集群，实现高可用
+      defaultZone: http://cluster1:1001/eureka/,http://cluster3:1003/eureka/
+
+
