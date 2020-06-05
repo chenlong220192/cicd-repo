@@ -1,12 +1,13 @@
 spring:
   application:
     name: eureka-server
+  profiles:
+    active: standalone
 
 logging:
   level:
     root: debug
     site.mingsha: debug
-  path: /data/logs/springcloud-examples/
-  file: ${spring.application.name}.log
+  file: ./logs/${spring.application.name}.log
 
 
