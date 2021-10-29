@@ -20,12 +20,19 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<aspectj.version>1.9.1</aspectj.version>
+        <allure.version>2.13.6</allure.version>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-eureka-server</artifactId>
+		</dependency>
+		<dependency>
+				<groupId>io.qameta.allure</groupId>
+				<artifactId>allure-junit4</artifactId>
+				<version>${allure.version}</version>
 		</dependency>
 	</dependencies>
 
@@ -47,6 +54,55 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
+			<plugin>
+			                <groupId>org.apache.maven.plugins</groupId>
+			                <artifactId>maven-surefire-plugin</artifactId>
+			                <version>2.22.2</version>
+			                <configuration>
+			                    <testFailureIgnore>false</testFailureIgnore>
+			                    <argLine>
+			                        -Dfile.encoding=UTF-8
+			                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+			                    </argLine>
+			                    <properties>
+			                        <property>
+			                            <name>listener</name>
+			                            <value>io.qameta.allure.junit4.AllureJunit4</value>
+			                        </property>
+			                    </properties>
+			                    <systemPropertyVariables>
+			                        <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
+			                    </systemPropertyVariables>
+			                </configuration>
+			                <dependencies>
+			                    <dependency>
+			                        <groupId>org.aspectj</groupId>
+			                        <artifactId>aspectjweaver</artifactId>
+			                        <version>${aspectj.version}</version>
+			                    </dependency>
+			                </dependencies>
+			            </plugin>
+
+			            <plugin>
+			                <groupId>io.qameta.allure</groupId>
+			                <artifactId>allure-maven</artifactId>
+			                <version>2.10.0</version>
+			                <configuration>
+			                    <reportVersion>${allure.version}</reportVersion>
+			                    <resultsDirectory>${project.build.directory}/allure-results</resultsDirectory>
+			                </configuration>
+			            </plugin>
+
+			            <plugin>
+			                <groupId>org.apache.maven.plugins</groupId>
+			                <artifactId>maven-compiler-plugin</artifactId>
+			                <version>3.1</version>
+			                <configuration>
+			                    <source>1.8</source>
+			                    <target>1.8</target>
+			                </configuration>
+			            </plugin>
 		</plugins>
 	</build>
 
