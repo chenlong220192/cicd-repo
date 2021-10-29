@@ -1,1 +1,1 @@
-## CI/CD测试项目
+Example of usage Allure Report with JUnit4

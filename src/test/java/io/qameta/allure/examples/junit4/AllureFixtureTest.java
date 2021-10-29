@@ -1,4 +1,4 @@
-package site.mingsha.eureka.server.test;
+package io.qameta.allure.examples.junit4;
 
 import org.junit.*;
 
