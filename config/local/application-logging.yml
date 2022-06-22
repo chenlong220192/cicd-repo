@@ -1,0 +1,11 @@
+logging:
+  level:
+    root: debug
+    org.springframework: debug
+    org.springframework.jdbc: debug
+    org.springframework.boot: debug
+    org.springframework.cloud: debug
+    org.mybatis: debug
+    com.alibaba.druid: debug
+    com.github.trang: debug
+    executableSql: debug

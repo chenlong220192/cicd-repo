@@ -1,0 +1,21 @@
+# idea
+.idea
+*.iml
+**/*.iml
+
+# eclipse
+.settings
+.classpath
+.project
+.springBeans
+
+# mac
+**/.DS_Store
+**/._.DS_Store
+
+#
+target/
+*/target/
+
+#
+logs

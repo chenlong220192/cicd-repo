@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: local_cicd-repo
+  profiles:
+    include:
+      - datasource
+      - mybatis
+      - logging
+      - tomcat
+      - eureka
+      - monitor
+      - security
