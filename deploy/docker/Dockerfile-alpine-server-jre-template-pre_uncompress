@@ -1,5 +1,5 @@
 # 1、基础镜像
-FROM nexus.internal:5000/base/alpine-server-jre:8u202
+FROM nexus.internal:8082/base/alpine-server-jre:8u202
 
 # 2、在构建镜像时，指定镜像的工作目录。之后的命令都是基于此工作目录，不存在则自动创建。
 WORKDIR /app/

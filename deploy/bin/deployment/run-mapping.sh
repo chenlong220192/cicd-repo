@@ -17,7 +17,7 @@
 
 # ----------------------- params <---------------------------
 # 仓库名
-DOCKER_REPOSITORY_NAME=nexus.internal:5000
+DOCKER_REPOSITORY_NAME=nexus.internal:8082
 # 镜像名
 DOCKER_IMAGE_NAME=app/cicd-repo
 # tag
