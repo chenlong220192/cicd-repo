@@ -1,0 +1,4 @@
+{
+    "name": "Java Dev Container",
+    "dockerFile": "Dockerfile"
+}
